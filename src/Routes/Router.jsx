@@ -5,6 +5,7 @@ import Home from "../Pages/Home/Home/Home";
 import ContactUs from "../Pages/ContactUs/ContactUs/ContactUs";
 import DashBoardHome from "../Pages/DashBoard/DashBoardHome";
 import OurMenuHome from "../Pages/OurMenu/OurMenuHome/OurMenuHome";
+import OurShop from "../Pages/OurShop/OurShop";
 
 const Router = () => {
   return (
@@ -14,8 +15,11 @@ const Router = () => {
           <Route path="/" element={<Home></Home>} />
           <Route path="/contactUs" element={<ContactUs></ContactUs>} />
           <Route path="/dashBoard" element={<DashBoardHome></DashBoardHome>} />
+
           <Route path="/ourMenu" element={<OurMenuHome></OurMenuHome>} >
-        </Route>
+          </Route>
+          <Route path="/ourShop" element={<OurShop></OurShop>} >
+          </Route>
         </Route>
         
       </Routes>
