@@ -2,7 +2,7 @@ import React from 'react';
 
 const Menu = ({data}) => {
 
-    console.log(data);
+    // console.log(data);
     return (
         <div className='flex justify-center items-center'>
            <div className='w-[150px] '>

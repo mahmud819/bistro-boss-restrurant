@@ -6,7 +6,7 @@ import 'react-tabs/style/react-tabs.css';
 
 const OurShopBanner = () => {
 
-    const [tabIndex, setTabIndex] = useState(0);
+    
 
 
   return (
@@ -16,22 +16,7 @@ const OurShopBanner = () => {
         title={"Our Shop"}
         paragraph={"Would you like to try a dish?"}
       ></SharedBackground>
-      <div>
-        <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-          <TabList>
-            <Tab>SALAD</Tab>
-            <Tab>PIZZA</Tab>
-            <Tab>SOUPS</Tab>
-            <Tab>DESSERTS</Tab>
-            <Tab>DRINKS</Tab>
-          </TabList>
-          <TabPanel>Salad</TabPanel>
-          <TabPanel>Pizza</TabPanel>
-          <TabPanel>Soups</TabPanel>
-          <TabPanel>Desserts</TabPanel>
-          <TabPanel>Drinks</TabPanel>
-        </Tabs>
-      </div>
+      
     </div>
   );
 };
