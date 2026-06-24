@@ -4,6 +4,7 @@ import OurShop from "../OurShop";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import OurMenuBanner from "../../OurMenu/OurMenuBanner/OurMenuBanner";
 import { useParams } from "react-router-dom";
+import AllMenuData from "../../../CustomHook/AllMenuData/AllMenuData";
 
 const OurShopMenu = () => {
     const foodMenus = ["salad","pizza","soups","dessert","drinks"]
@@ -13,7 +14,7 @@ const OurShopMenu = () => {
     console.log(buttonTitle,initialIndex,tabIndex);
   return (
     <div>
-      <OurMenuBanner></OurMenuBanner>
+      {/* <OurMenuBanner></OurMenuBanner> */}
       <div>
         <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
           <TabList>
@@ -23,7 +24,7 @@ const OurShopMenu = () => {
             <Tab>DESSERTS</Tab>
             <Tab>DRINKS</Tab>
           </TabList>
-          <TabPanel>Salad</TabPanel>
+          <TabPanel><AllMenuData selectedMenu={'salad'}></AllMenuData> </TabPanel>
           <TabPanel>Pizza</TabPanel>
           <TabPanel>Soups</TabPanel>
           <TabPanel>Desserts</TabPanel>
