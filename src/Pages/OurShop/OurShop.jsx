@@ -11,8 +11,8 @@ import UseAxios from "../../CustomHook/UseAxios/UseAxios";
 
 const OurShop = () => {
 
-  const menuData= AllMenuData();
-  const axios = UseAxios();
+  // const menuData= AllMenuData();
+  // const axios = UseAxios();
 
   
   // useEffect(()=>{

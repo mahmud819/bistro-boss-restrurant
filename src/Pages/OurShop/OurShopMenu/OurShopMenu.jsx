@@ -11,7 +11,7 @@ const OurShopMenu = () => {
     const {buttonTitle}= useParams();
     const initialIndex = foodMenus.indexOf(buttonTitle);
     const [tabIndex, setTabIndex] = useState(initialIndex);
-    console.log(buttonTitle,initialIndex,tabIndex);
+    // console.log(buttonTitle,initialIndex,tabIndex);
   return (
     <div>
       {/* <OurMenuBanner></OurMenuBanner> */}
@@ -24,11 +24,11 @@ const OurShopMenu = () => {
             <Tab>DESSERTS</Tab>
             <Tab>DRINKS</Tab>
           </TabList>
-          <TabPanel><AllMenuData selectedMenu={'salad'}></AllMenuData> </TabPanel>
-          <TabPanel>Pizza</TabPanel>
-          <TabPanel>Soups</TabPanel>
-          <TabPanel>Desserts</TabPanel>
-          <TabPanel>Drinks</TabPanel>
+          <TabPanel><AllMenuData menuName={'salad'}></AllMenuData></TabPanel>
+          <TabPanel><AllMenuData menuName={'pizza'}></AllMenuData></TabPanel>
+          <TabPanel><AllMenuData menuName={'soup'}></AllMenuData></TabPanel>
+          <TabPanel><AllMenuData menuName={'dessert'}></AllMenuData></TabPanel>
+          <TabPanel><AllMenuData menuName={'drinks'}></AllMenuData></TabPanel>
         </Tabs>
       </div>
     </div>
