@@ -3,7 +3,7 @@ import { FaPhone } from 'react-icons/fa6';
 
 const SharedContactCard = ({icon,titile,paragraph}) => {
     return (
-        <div className='w-[100%] h-[300px] z-50 shadow-lg backdrop-blur-md rounded-sm'>
+        <div className='w-[100%] h-[300px] z-40 shadow-lg backdrop-blur-md rounded-sm'>
             <div className='bg-[#D99904] flex justify-center py-4 text-lg text-white'>
                 {icon}
             </div>

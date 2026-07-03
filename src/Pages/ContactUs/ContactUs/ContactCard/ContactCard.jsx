@@ -5,24 +5,26 @@ import SharedTitle from "../../../../Shared/SharedComponent/SharedTitle/SharedTi
 
 const ContactCard = () => {
   return (
-    <div className="py-8">
-        <SharedTitle title={'Our Location'} subTitle={'Visit Us'}></SharedTitle>
-      <div className="grid grid-cols-3 gap-2 p-4">
-        <SharedContactCard
-          icon={<FaPhone></FaPhone>}
-          titile={"Phone"}
-          paragraph={"+8801125-125436"}
-        ></SharedContactCard>
-        <SharedContactCard
-          icon={<FaLocationPin></FaLocationPin>}
-          titile={"Address"}
-          paragraph={"Banani,Dhaka,1250"}
-        ></SharedContactCard>
-        <SharedContactCard
-          icon={<FaClock></FaClock>}
-          titile={"Working Hours"}
-          paragraph={"07:00am to 11:00pm"}
-        ></SharedContactCard>
+    <div className="">
+      <div className="flex flex-col justify-center items-center py-8">
+        <SharedTitle title={"Our Location"} subTitle={"Visit Us"}></SharedTitle>
+        <div className="w-[80%] grid grid-cols-3 gap-2 p-4">
+          <SharedContactCard
+            icon={<FaPhone></FaPhone>}
+            titile={"Phone"}
+            paragraph={"+8801125-125436"}
+          ></SharedContactCard>
+          <SharedContactCard
+            icon={<FaLocationPin></FaLocationPin>}
+            titile={"Address"}
+            paragraph={"Banani,Dhaka,1250"}
+          ></SharedContactCard>
+          <SharedContactCard
+            icon={<FaClock></FaClock>}
+            titile={"Working Hours"}
+            paragraph={"07:00am to 11:00pm"}
+          ></SharedContactCard>
+        </div>
       </div>
     </div>
   );
