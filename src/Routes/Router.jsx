@@ -7,6 +7,7 @@ import DashBoardHome from "../Pages/DashBoard/DashBoardHome";
 import OurMenuHome from "../Pages/OurMenu/OurMenuHome/OurMenuHome";
 import OurShop from "../Pages/OurShop/OurShop";
 import OurShopMenu from "../Pages/OurShop/OurShopMenu/OurShopMenu";
+import SignUp from "../Pages/Components/SignUp/SignUp";
 
 const Router = () => {
   return (
@@ -24,6 +25,9 @@ const Router = () => {
           </Route>
         </Route>
         
+      </Routes>
+      <Routes>
+        <Route path="/signUp" element={<SignUp></SignUp>}></Route>
       </Routes>
     </BrowserRouter>
   );
