@@ -8,6 +8,7 @@ import OurMenuHome from "../Pages/OurMenu/OurMenuHome/OurMenuHome";
 import OurShop from "../Pages/OurShop/OurShop";
 import OurShopMenu from "../Pages/OurShop/OurShopMenu/OurShopMenu";
 import SignUp from "../Pages/Components/SignUp/SignUp";
+import SignIn from "../Pages/Components/SignIn/SignIn";
 
 const Router = () => {
   return (
@@ -28,6 +29,7 @@ const Router = () => {
       </Routes>
       <Routes>
         <Route path="/signUp" element={<SignUp></SignUp>}></Route>
+        <Route path="/signIn" element={<SignIn></SignIn>}></Route>
       </Routes>
     </BrowserRouter>
   );
