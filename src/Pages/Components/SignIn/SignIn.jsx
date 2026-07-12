@@ -23,6 +23,7 @@ const SignIn = () => {
               <input type="email" className="input outline-none" placeholder="Email" />
               <label className="label">Password</label>
               <input type="password" className="input outline-none" placeholder="Password" />
+              <input type="text" className="input outline-none" placeholder="" />
               <button className="btn mt-4 bg-[#D99904] text-white font-bold">Sign In</button>
               <p className="text-center text-[#D98904]">Don't have any Account? <Link to='/signUp' className="font-bold">Register Here</Link></p>
               <p className='text-center font-bold '>Or</p>
