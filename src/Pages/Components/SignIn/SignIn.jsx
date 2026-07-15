@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import bgImage from "../../../assets/others/authentication.png";
 import authenticImg from "../../../assets/others/authentication2.png";
 import { Link } from "react-router-dom";
@@ -7,18 +7,36 @@ import {
   LoadCanvasTemplate,
   LoadCanvasTemplateNoReload,
   loadCaptchaEnginge,
+  validateCaptcha,
 } from "react-simple-captcha";
 
 const SignIn = () => {
-  loadCaptchaEnginge(6);
 
+  const [signInErr,setSignInErr]=useState('');
+
+   useEffect(()=>{
+    loadCaptchaEnginge(6);
+   },[])
   const handleSignIn = (e) => {
+    
     e.preventDefault();
     const form = e.target;
 
+    
     const email = form.email.value;
+    const password = form.password.value;
     const captcha = form.captcha.value;
-    console.log(email,captcha);
+
+    if(validateCaptcha(captcha)===true){
+      // alert('captcha is matched')
+      setSignInErr('');
+    }
+    else{
+      // alert("captcha doesn't match")
+      setSignInErr("Captcha doesn't match,Try again")
+    }
+    console.log(email,password,captcha);
+    
   };
   return (
     <div
@@ -50,6 +68,7 @@ const SignIn = () => {
                   type="password"
                   className="input outline-none"
                   placeholder="Password"
+                  name="password"
                 />
                 <input
                   type="text"
@@ -59,6 +78,8 @@ const SignIn = () => {
                 />
                 <LoadCanvasTemplate />
                 {/* <LoadCanvasTemplateNoReload /> */}
+
+                {signInErr&&<p className="text-red-600 fond-bold">{signInErr}</p>}
                 <button
                   
                   className="btn mt-4 bg-[#D99904] text-white font-bold"
