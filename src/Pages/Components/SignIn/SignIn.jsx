@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import bgImage from "../../../assets/others/authentication.png";
 import authenticImg from "../../../assets/others/authentication2.png";
 import { Link } from "react-router-dom";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa6";
-import {
-  LoadCanvasTemplate,
-  LoadCanvasTemplateNoReload,
-  loadCaptchaEnginge,
-  validateCaptcha,
-} from "react-simple-captcha";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
+// import {
+//   LoadCanvasTemplate,
+//   LoadCanvasTemplateNoReload,
+//   loadCaptchaEnginge,
+//   validateCaptcha,
+// } from "react-simple-captcha";
 
 const SignIn = () => {
-
+  const {setUser,signInUser}=useContext(AuthContext);
   const [signInErr,setSignInErr]=useState('');
 
-   useEffect(()=>{
-    loadCaptchaEnginge(6);
-   },[])
+  //  useEffect(()=>{
+  //   loadCaptchaEnginge(6);
+  //  },[])
   const handleSignIn = (e) => {
     
     e.preventDefault();
@@ -27,15 +28,23 @@ const SignIn = () => {
     const password = form.password.value;
     const captcha = form.captcha.value;
 
-    if(validateCaptcha(captcha)===true){
-      // alert('captcha is matched')
-      setSignInErr('');
-    }
-    else{
-      // alert("captcha doesn't match")
-      setSignInErr("Captcha doesn't match,Try again")
-    }
-    console.log(email,password,captcha);
+    // if(validateCaptcha(captcha)===true){
+    //   // alert('captcha is matched')
+    //   setSignInErr('');
+    // }
+    // else{
+    //   // alert("captcha doesn't match")
+    //   setSignInErr("Captcha doesn't match,Try again")
+    // }
+    // console.log(email,password,captcha);
+    signInUser(email,password)
+    .then((result)=>{
+      console.log(result?.user)
+      alert('user login successful');
+    })
+    .then((err)=>{
+      console.log(err?.message);
+    })
     
   };
   return (
@@ -76,7 +85,7 @@ const SignIn = () => {
                   placeholder="Write here below Captcha"
                   name="captcha"
                 />
-                <LoadCanvasTemplate />
+                {/* <LoadCanvasTemplate /> */}
                 {/* <LoadCanvasTemplateNoReload /> */}
 
                 {signInErr&&<p className="text-red-600 fond-bold">{signInErr}</p>}
