@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
 
+  const{user,userLogOut,setLoading}=useContext(AuthContext);
 
+
+  const handleSignOut =()=>{
+
+    userLogOut()
+    .then((res)=>{
+      console.log(res);
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+    console.log('inside handle sign out function')
+  }
   const menuList = 
     <>
       <li>
@@ -21,16 +35,23 @@ const Navbar = () => {
       <li>
         <Link to={'/ourShop'} >Our Shop</Link>
       </li>
-      <li>
+      {user?<>
+        <li>
+        <Link onClick={handleSignOut} >Sign Out</Link>
+      </li>
+      </>:<>
+        <li>
         <Link to={'/signIn'} >Sign In</Link>
       </li>
       <li>
         <Link to={'/signUp'} >Sign Up</Link>
       </li>
+      </>}
     
     
     </>
   
+  console.log(user);
   return (
     <div>
       <div className="navbar fixed top-0 w-full z-50 shadow-sm text-white backdrop-blur-md ">

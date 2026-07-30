@@ -12,7 +12,7 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 // } from "react-simple-captcha";
 
 const SignIn = () => {
-  const {setUser,signInUser}=useContext(AuthContext);
+  const {setUser,signInUser,user}=useContext(AuthContext);
   const [signInErr,setSignInErr]=useState('');
 
   //  useEffect(()=>{
@@ -39,14 +39,16 @@ const SignIn = () => {
     // console.log(email,password,captcha);
     signInUser(email,password)
     .then((result)=>{
-      console.log(result?.user)
+      console.log(result?.user);
+      setUser(result?.user?.email)
       alert('user login successful');
     })
     .then((err)=>{
       console.log(err?.message);
     })
-    
+    form.reset();
   };
+console.log(user);
   return (
     <div
       className="hero  min-h-screen"
