@@ -9,6 +9,8 @@ import OurShop from "../Pages/OurShop/OurShop";
 import OurShopMenu from "../Pages/OurShop/OurShopMenu/OurShopMenu";
 import SignUp from "../Pages/Components/SignUp/SignUp";
 import SignIn from "../Pages/Components/SignIn/SignIn";
+import DashboardLayout from "../Dashboard/Layout/DashboardLayout";
+import AdminHome from "../Dashboard/AdminPages/AdminHome/AdminHome";
 
 const Router = () => {
   return (
@@ -17,7 +19,7 @@ const Router = () => {
         <Route path="/" element={<MainLayout></MainLayout>} >
           <Route path="/" element={<Home></Home>} />
           <Route path="/contactUs" element={<ContactUs></ContactUs>} />
-          <Route path="/dashBoard" element={<DashBoardHome></DashBoardHome>} />
+          {/* <Route path="/dashBoard" element={<DashBoardHome></DashBoardHome>} /> */}
 
           <Route path="/ourMenu" element={<OurMenuHome></OurMenuHome>} >
           </Route>
@@ -30,6 +32,11 @@ const Router = () => {
       <Routes>
         <Route path="/signUp" element={<SignUp></SignUp>}></Route>
         <Route path="/signIn" element={<SignIn></SignIn>}></Route>
+      </Routes>
+      <Routes>
+        <Route path="/dashboard" element={<DashboardLayout></DashboardLayout>}>
+          <Route path="/dashboard/home" element={<AdminHome></AdminHome>}></Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   );
