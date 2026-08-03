@@ -8,7 +8,7 @@ const DashboardLayout = () => {
             <div className='w-64 bg-orange-400 min-h-screen'>
                 <div className='p-8 uppercase'>
                     <h1 className='font-bold text-3xl'>BISTRO BOSS</h1>
-                    <p className='tracking-[500] '>RESTAURANT</p>
+                    <p className='tracking-[0.65em] '>RESTAURANT</p>
                 </div>
                 <AdminMenuBar></AdminMenuBar>
             </div>
