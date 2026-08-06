@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaHome } from 'react-icons/fa';
-import { FaBook, FaCookieBite, FaListUl, FaUsers } from 'react-icons/fa6';
+import { FaBook, FaCookieBite, FaEnvelope, FaFile, FaListUl, FaUsers } from 'react-icons/fa6';
+import { GiHamburgerMenu, GiShoppingBag } from 'react-icons/gi';
 import { ImSpoonKnife } from 'react-icons/im';
 import { NavLink } from 'react-router-dom';
 
@@ -10,28 +11,42 @@ const AdminMenuBar = () => {
         display:'inline-block',
         fontSize: 'x-large',
         marginTop: '-6px',
-        ":hover": {
-    backgroundColor: "white",
-  },
+        
     }
     return (
         <div>
-            <ul className='flex flex-col pl-8 uppercase'>
-                <li className='pb-4'>
-                    <NavLink to='/dashboard/home'><FaHome style={iconsStyle}></FaHome> Admin Home</NavLink>
+            <ul className='flex flex-col pl-6 uppercase'>
+                <li className='pb-4 hover:text-[white]'>
+                    <NavLink to='/dashboard/adminHome'><FaHome style={iconsStyle}></FaHome> Admin Home</NavLink>
                 </li>
-                <li className='pb-4'>
-                    <NavLink><ImSpoonKnife style={iconsStyle} /> Add Items</NavLink>
+                <li className='pb-4 hover:text-[white]'>
+                    <NavLink to='/dashboard/addItems'><ImSpoonKnife style={iconsStyle} /> Add Items</NavLink>
                 </li>
-                <li className='pb-4'>
-                    <NavLink><FaListUl style={iconsStyle} /> Manage Items</NavLink>
+                <li className='pb-4 hover:text-[white]'>
+                    <NavLink to='/dashboard/manageItems'><FaListUl style={iconsStyle} /> Manage Items</NavLink>
                 </li>
-                <li className='pb-4'>
-                    <NavLink><FaBook style={iconsStyle}></FaBook> Manage Bookings</NavLink>
+                <li className='pb-4 hover:text-[white]'>
+                    <NavLink to='/dashboard/manageBookings'><FaBook style={iconsStyle}></FaBook> Manage Bookings</NavLink>
                 </li>
-                <li className='pb-4'>
-                    <NavLink><FaUsers style={iconsStyle}></FaUsers> All Users</NavLink>
+                <li className='pb-2 hover:text-[white]'>
+                    <NavLink to='/dashboard/allUsers'><FaUsers style={iconsStyle}></FaUsers> All Users</NavLink>
                 </li>
+                {/* border */}
+                <hr className=' w-[85%] my-4 text-[white] font-bold border-1' />
+                {/* second menu */}
+                <li className='pb-4 hover:text-[white]'>
+                    <NavLink to='/dashboard/home'><FaHome style={iconsStyle} /> Home</NavLink>
+                </li>
+                <li className='pb-4 hover:text-[white]'>
+                    <NavLink to='/dashboard/menu'><GiHamburgerMenu style={iconsStyle} /> Menu</NavLink>
+                </li>
+                <li className='pb-4 hover:text-[white]'>
+                    <NavLink to='/dashboard/shop'><GiShoppingBag style={iconsStyle}></GiShoppingBag> Shop</NavLink>
+                </li>
+                <li className='pb-2 hover:text-[white]'>
+                    <NavLink to='/dashboard/contact'><FaEnvelope style={iconsStyle} /> Contact</NavLink>
+                </li>
+                
             </ul>
         </div>
     );

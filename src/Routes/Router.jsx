@@ -11,6 +11,7 @@ import SignUp from "../Pages/Components/SignUp/SignUp";
 import SignIn from "../Pages/Components/SignIn/SignIn";
 import DashboardLayout from "../Dashboard/Layout/DashboardLayout";
 import AdminHome from "../Dashboard/AdminPages/AdminHome/AdminHome";
+import AddItems from "../Dashboard/AdminPages/AddItems/AddItems";
 
 const Router = () => {
   return (
@@ -35,7 +36,8 @@ const Router = () => {
       </Routes>
       <Routes>
         <Route path="/dashboard" element={<DashboardLayout></DashboardLayout>}>
-          <Route path="/dashboard/home" element={<AdminHome></AdminHome>}></Route>
+          <Route path="/dashboard/adminHome" element={<AdminHome></AdminHome>}></Route>
+          <Route path="/dashboard/addItems" element={<AddItems></AddItems>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
