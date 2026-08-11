@@ -15,6 +15,12 @@ import AddItems from "../Dashboard/AdminPages/AddItems/AddItems";
 import ManageItems from "../Dashboard/AdminPages/ManageItems/ManageItems";
 import ManageBooking from "../Dashboard/AdminPages/ManageBooking/ManageBooking";
 import AllUsers from "../Dashboard/AdminPages/AllUsers/AllUsers";
+import UserHome from "../Dashboard/UserPages/UserHome/UserHome";
+import Reservation from "../Dashboard/UserPages/Reservation/Reservation";
+import PaymentHistory from "../Dashboard/UserPages/PaymentHistory/PaymentHistory";
+import MyCart from "../Dashboard/UserPages/MyCart/MyCart";
+import AddReview from "../Dashboard/UserPages/AddReview/AddReview";
+import MyBookings from "../Dashboard/UserPages/MyBookings/MyBookings";
 
 const Router = () => {
   return (
@@ -44,6 +50,13 @@ const Router = () => {
           <Route path="/dashboard/manageItems" element={<ManageItems></ManageItems>}></Route>
           <Route path="/dashboard/manageBookings" element={<ManageBooking></ManageBooking>}></Route>
           <Route path="/dashboard/allUsers" element={<AllUsers></AllUsers>}></Route>
+          {/* user dashboard component */}
+          <Route path="/dashboard/userHome" element={<UserHome></UserHome>}></Route>
+          <Route path="/dashboard/reservation" element={<Reservation></Reservation>}></Route>
+          <Route path="/dashboard/paymentHistory" element={<PaymentHistory></PaymentHistory>}></Route>
+          <Route path="/dashboard/myCart" element={<MyCart></MyCart>}></Route>
+          <Route path="/dashboard/addReview" element={<AddReview></AddReview>}></Route>
+          <Route path="/dashboard/myBookings" element={<MyBookings></MyBookings>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
