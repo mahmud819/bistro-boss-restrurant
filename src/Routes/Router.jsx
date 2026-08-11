@@ -12,6 +12,9 @@ import SignIn from "../Pages/Components/SignIn/SignIn";
 import DashboardLayout from "../Dashboard/Layout/DashboardLayout";
 import AdminHome from "../Dashboard/AdminPages/AdminHome/AdminHome";
 import AddItems from "../Dashboard/AdminPages/AddItems/AddItems";
+import ManageItems from "../Dashboard/AdminPages/ManageItems/ManageItems";
+import ManageBooking from "../Dashboard/AdminPages/ManageBooking/ManageBooking";
+import AllUsers from "../Dashboard/AdminPages/AllUsers/AllUsers";
 
 const Router = () => {
   return (
@@ -38,6 +41,9 @@ const Router = () => {
         <Route path="/dashboard" element={<DashboardLayout></DashboardLayout>}>
           <Route path="/dashboard/adminHome" element={<AdminHome></AdminHome>}></Route>
           <Route path="/dashboard/addItems" element={<AddItems></AddItems>}></Route>
+          <Route path="/dashboard/manageItems" element={<ManageItems></ManageItems>}></Route>
+          <Route path="/dashboard/manageBookings" element={<ManageBooking></ManageBooking>}></Route>
+          <Route path="/dashboard/allUsers" element={<AllUsers></AllUsers>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

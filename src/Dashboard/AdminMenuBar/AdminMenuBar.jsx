@@ -35,16 +35,16 @@ const AdminMenuBar = () => {
                 <hr className=' w-[85%] my-4 text-[white] font-bold border-1' />
                 {/* second menu */}
                 <li className='pb-4 hover:text-[white]'>
-                    <NavLink to='/dashboard/home'><FaHome style={iconsStyle} /> Home</NavLink>
+                    <NavLink to='/'><FaHome style={iconsStyle} /> Home</NavLink>
                 </li>
                 <li className='pb-4 hover:text-[white]'>
-                    <NavLink to='/dashboard/menu'><GiHamburgerMenu style={iconsStyle} /> Menu</NavLink>
+                    <NavLink to='/ourMenu'><GiHamburgerMenu style={iconsStyle} /> Menu</NavLink>
                 </li>
                 <li className='pb-4 hover:text-[white]'>
-                    <NavLink to='/dashboard/shop'><GiShoppingBag style={iconsStyle}></GiShoppingBag> Shop</NavLink>
+                    <NavLink to='/ourShop'><GiShoppingBag style={iconsStyle}></GiShoppingBag> Shop</NavLink>
                 </li>
                 <li className='pb-2 hover:text-[white]'>
-                    <NavLink to='/dashboard/contact'><FaEnvelope style={iconsStyle} /> Contact</NavLink>
+                    <NavLink to='/contactUs'><FaEnvelope style={iconsStyle} /> Contact</NavLink>
                 </li>
                 
             </ul>
