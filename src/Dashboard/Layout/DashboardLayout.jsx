@@ -1,6 +1,7 @@
 import React from 'react';
 import AdminMenuBar from '../AdminMenuBar/AdminMenuBar';
 import { Outlet } from 'react-router-dom';
+import UserMenuBar from '../UserMenuBar/UserMenuBar';
 
 const DashboardLayout = () => {
     return (
@@ -11,6 +12,7 @@ const DashboardLayout = () => {
                     <p className='tracking-[0.65em] '>RESTAURANT</p>
                 </div>
                 <AdminMenuBar></AdminMenuBar>
+                <UserMenuBar></UserMenuBar>
             </div>
             <div>
                 <Outlet></Outlet>
