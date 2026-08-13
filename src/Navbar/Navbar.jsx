@@ -1,56 +1,46 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { FaCartPlus } from "react-icons/fa6";
 
 const Navbar = () => {
+  const { user, userLogOut, setLoading } = useContext(AuthContext);
 
-  const{user,userLogOut,setLoading}=useContext(AuthContext);
-
-
-  const handleSignOut =()=>{
-
+  const handleSignOut = () => {
     userLogOut()
-    .then((res)=>{
-      console.log(res);
-    })
-    .catch((err)=>{
-      console.log(err)
-    })
-    console.log('inside handle sign out function')
-  }
-  const menuList = 
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log("inside handle sign out function");
+  };
+  const menuList = (
     <>
       <li>
-        <Link to={'/'}>Home</Link>
+        <Link to={"/"}>Home</Link>
       </li>
       <li>
-        <Link to={'/contactUs'} >Contact Us</Link>
+        <Link to={"/contactUs"}>Contact Us</Link>
       </li>
       <li>
-        <Link to={'/dashBoard'} >DashBoard</Link>
+        <Link to={"/dashBoard"}>DashBoard</Link>
       </li>
       <li>
-        <Link to={'/ourMenu'} >Our Menu</Link>
+        <Link to={"/ourMenu"}>Our Menu</Link>
       </li>
       <li>
-        <Link to={'/ourShop'} >Our Shop</Link>
-      </li>
-      {user?<>
-        <li>
-        <Link onClick={handleSignOut} >Sign Out</Link>
-      </li>
-      </>:<>
-        <li>
-        <Link to={'/signIn'} >Sign In</Link>
+        <Link to={"/ourShop"}>Our Shop</Link>
       </li>
       <li>
-        <Link to={'/signUp'} >Sign Up</Link>
+        <Link to={'/dashboard/myCart'}>
+          <FaCartPlus className="mt-1 text-2xl"></FaCartPlus>
+        </Link>
       </li>
-      </>}
-    
-    
     </>
-  
+  );
+
   console.log(user);
   return (
     <div>
@@ -90,12 +80,20 @@ const Navbar = () => {
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            {menuList}
-          </ul>
+          <ul className="menu menu-horizontal px-1">{menuList}</ul>
         </div>
-        <div className="navbar-end">
-          <a className="btn">Button</a>
+        <div className="navbar-end mr-6">
+          {user ? (
+            <>
+              <Link onClick={handleSignOut}>Sign Out</Link>
+            </>
+          ) : (
+            <>
+              <Link to={"/signIn"}>Sign In</Link>
+                <h1 className="px-4">Or</h1>
+              <Link to={"/signUp"}>Sign Up</Link>
+            </>
+          )}
         </div>
       </div>
     </div>
