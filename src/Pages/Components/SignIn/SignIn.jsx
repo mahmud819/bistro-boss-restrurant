@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import bgImage from "../../../assets/others/authentication.png";
 import authenticImg from "../../../assets/others/authentication2.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa6";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 // import {
@@ -14,6 +14,10 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 const SignIn = () => {
   const {setUser,signInUser,user}=useContext(AuthContext);
   const [signInErr,setSignInErr]=useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname||'/'
+  console.log(location?.state)
 
   //  useEffect(()=>{
   //   loadCaptchaEnginge(6);
@@ -47,6 +51,7 @@ const SignIn = () => {
       console.log(err?.message);
     })
     form.reset();
+    navigate(from,{replace:true})
   };
 console.log(user);
   return (
