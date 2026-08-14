@@ -2,14 +2,42 @@ import React from "react";
 import useAuthContext from "../../../../CustomHook/AuthContext/useAuthContext";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import useAxiosSecure from "../../../../CustomHook/UseAxios/useAxios";
 
 const ChefRecomandCard = ({ data }) => {
   const { user } = useAuthContext();
   const navigate = useNavigate();
   const location = useLocation();
+  const axiosSecure = useAxiosSecure();
 
   const handleAddToCart = (data) => {
+    const { name, price, image, category, _id } = data;
     if (user && user?.email) {
+      const cartItem = {
+        name,
+        menuId: _id,
+        email: user?.email,
+        price,
+        image,
+        category,
+      };
+      axiosSecure
+        .post("/carts", cartItem)
+        .then((res) => {
+          if (res?.data?.insertedId) {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: `${name} item added your cart successfuly`,
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } else {
       Swal.fire({
         title: "If you want to cart this item?",
@@ -26,7 +54,7 @@ const ChefRecomandCard = ({ data }) => {
           //   text: "This item is added to your cart successfuly.",
           //   icon: "success",
           // });
-          navigate('/signin',{state:{from:location}})
+          navigate("/signin", { state: { from: location } });
       });
     }
     console.log("from add to cart", data);
