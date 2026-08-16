@@ -3,12 +3,14 @@ import useAuthContext from "../../../../CustomHook/AuthContext/useAuthContext";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../../../CustomHook/UseAxios/useAxios";
+import useCart from "../../../../CustomHook/UseCart/useCart";
 
 const ChefRecomandCard = ({ data }) => {
   const { user } = useAuthContext();
   const navigate = useNavigate();
   const location = useLocation();
   const axiosSecure = useAxiosSecure();
+  const [,refetch] = useCart();
 
   const handleAddToCart = (data) => {
     const { name, price, image, category, _id } = data;
@@ -32,6 +34,7 @@ const ChefRecomandCard = ({ data }) => {
               showConfirmButton: false,
               timer: 1500,
             });
+            refetch();
           }
           console.log(res);
         })
