@@ -88,6 +88,7 @@ const Navbar = () => {
         <div className="navbar-end mr-6">
           {user ? (
             <>
+            <h1>{user?.email}</h1>
               <Link onClick={handleSignOut}>Sign Out</Link>
             </>
           ) : (

@@ -6,13 +6,14 @@ import useAxiosSecure from "../../../../CustomHook/UseAxios/useAxios";
 import useCart from "../../../../CustomHook/UseCart/useCart";
 
 const ChefRecomandCard = ({ data }) => {
-  const { user } = useAuthContext();
+  const { user,setLoading } = useAuthContext();
   const navigate = useNavigate();
   const location = useLocation();
   const axiosSecure = useAxiosSecure();
-  const [,refetch] = useCart();
+  const [refetch] = useCart();
 
   const handleAddToCart = (data) => {
+    // setLoading(true);
     const { name, price, image, category, _id } = data;
     if (user && user?.email) {
       const cartItem = {
@@ -27,6 +28,7 @@ const ChefRecomandCard = ({ data }) => {
         .post("/carts", cartItem)
         .then((res) => {
           if (res?.data?.insertedId) {
+            // setLoading(false)
             Swal.fire({
               position: "top-end",
               icon: "success",
@@ -36,6 +38,7 @@ const ChefRecomandCard = ({ data }) => {
             });
             refetch();
           }
+          
           console.log(res);
         })
         .catch((err) => {
@@ -63,7 +66,7 @@ const ChefRecomandCard = ({ data }) => {
     console.log("from add to cart", data);
   };
 
-  console.log(user);
+  // console.log(user);
   return (
     <div className="card bg-base-100 w-full shadow-sm">
       <figure className="px-2 pt-2">
