@@ -14,7 +14,7 @@ const useCart = () => {
             return res?.data
         }
     })
-    return [refetch,cart]
+    return [cart,refetch]
 };
 
 export default useCart;
