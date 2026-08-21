@@ -68,7 +68,7 @@ const MyCart = () => {
                 </td>
                 <td>{item?.price}</td>
                 <th>
-                  <button className="btn btn-ghost text-2xl"><MdDeleteForever></MdDeleteForever></button>
+                  <button className="btn btn-ghost text-2xl bg-red-500 text-white font-bold"><MdDeleteForever></MdDeleteForever></button>
                 </th>
               </tr>)}
 
