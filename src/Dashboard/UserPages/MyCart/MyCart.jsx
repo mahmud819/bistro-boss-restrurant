@@ -8,7 +8,7 @@ import { MdDeleteForever } from "react-icons/md";
 const MyCart = () => {
   const [cart] = useCart();
   const totalPrice = cart.reduce((total, item) => total + item?.price, 0);
-  console.log(cart)
+  // console.log(cart)
   return (
     <div className="">
       <SharedDashBoardTitle
