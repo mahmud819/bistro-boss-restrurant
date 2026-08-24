@@ -20,12 +20,13 @@ const SharedTable = ({data,thImage,thName,thCategory,thPrice,thAction1,thAction2
             </thead>
             <tbody>
               {/* cart data map */}
-              {data.map((item) => (
+              {data.map((item,index) => (
                 <tr key={item._id}>
                   <th>
-                    <label>
+                    {/* <label>
                       <input type="checkbox" className="checkbox" />
-                    </label>
+                    </label> */}
+                    {index+1}
                   </th>
 
                   <td>

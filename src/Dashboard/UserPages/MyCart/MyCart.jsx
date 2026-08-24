@@ -35,12 +35,13 @@ const MyCart = () => {
             </thead>
             <tbody>
               {/* cart data map */}
-               {cart.map(item=><tr key={item._id}>
-                <th>
+               {cart.map((item,index)=><tr key={item._id}>
+                <th>{index+1}</th>
+                {/* <th>
                   <label>
                     <input type="checkbox" className="checkbox" />
                   </label>
-                </th>
+                </th> */}
       
                 
                 <td>
