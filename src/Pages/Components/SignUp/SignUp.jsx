@@ -1,13 +1,15 @@
 import React, { useContext } from "react";
 import bgImage from "../../../assets/others/authentication.png";
 import authenticImg from "../../../assets/others/authentication2.png";
-import { Link, useNavigate } from "react-router-dom";
+import { data, Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../../CustomHook/UseAxiosPublic/useAxiosPublic";
 
 const SignUp = () => {
   const { user, createUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const axiosPublic = useAxiosPublic();
   const handleSignUp = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -18,7 +20,18 @@ const SignUp = () => {
       .then((result) => {
         console.log(result?.user);
         // alert('user create successful')
-        form.reset();
+        const userInfo= {
+          name: form.name.value,
+          email: form.email.value
+        }
+        axiosPublic.post('/users',userInfo)
+        .then(res=>{
+          console.log(res.data)
+        })
+        .catch(err=>{
+          console.log(err)
+        })
+
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -26,6 +39,7 @@ const SignUp = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        form.reset();
         navigate('/signIn')
       })
       .then((error) => {
