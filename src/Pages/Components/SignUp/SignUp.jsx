@@ -1,31 +1,40 @@
 import React, { useContext } from "react";
 import bgImage from "../../../assets/others/authentication.png";
 import authenticImg from "../../../assets/others/authentication2.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
-
-  const{user,createUser}=useContext(AuthContext);
+  const { user, createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleSignUp = (e) => {
-
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    createUser(email,password)
-    .then((result)=>{
-      console.log(result?.user)
-      alert('user create successful')
-    })
-    .then((error)=>{
-      console.log(error)
-    })
+    createUser(email, password)
+      .then((result) => {
+        console.log(result?.user);
+        // alert('user create successful')
+        form.reset();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Your account create successful",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate('/signIn')
+      })
+      .then((error) => {
+        console.log(error);
+      });
 
-    console.log(name,email,password)
+    // console.log(name, email, password);
   };
-  console.log(user);
+  // console.log(user);
   return (
     <div
       className="hero  min-h-screen"
