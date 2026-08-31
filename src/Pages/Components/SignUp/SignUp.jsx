@@ -5,6 +5,8 @@ import { data, Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../CustomHook/UseAxiosPublic/useAxiosPublic";
+import ScocialMediaLogin from "../../../Shared/SharedComponent/ScocialMediaLogin/ScocialMediaLogin";
+import { FaGoogle } from "react-icons/fa6";
 
 const SignUp = () => {
   const { user, createUser } = useContext(AuthContext);
@@ -24,6 +26,7 @@ const SignUp = () => {
           name: form.name.value,
           email: form.email.value
         }
+        // user inform storage in database
         axiosPublic.post('/users',userInfo)
         .then(res=>{
           console.log(res.data)
@@ -100,6 +103,9 @@ const SignUp = () => {
               </fieldset>
             </div>
           </form>
+          <div className="mx-auto pb-4">
+            <ScocialMediaLogin buttonIcon={<FaGoogle className="text-[#D99904]"></FaGoogle>} buttonName={'Signup With Google'}></ScocialMediaLogin>
+          </div>
         </div>
       </div>
     </div>
