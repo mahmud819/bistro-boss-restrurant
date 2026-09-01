@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 // import { PiPassword } from 'react-icons/pi';
 import { auth } from '../Firebase/firebase.init';
@@ -9,6 +9,7 @@ const AuthProvider = ({children}) => {
 
     const [user,setUser]=useState('');
     const [loading,setLoading]=useState(true);
+    const googleProvider = new GoogleAuthProvider();
 
 
 
@@ -21,6 +22,12 @@ const AuthProvider = ({children}) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth,email,password);
     }
+
+    // sign in with google 
+    const signInWithGoogle =()=>{
+        setLoading(true);
+        return signInWithPopup(auth,googleProvider);
+    }
     const userLogOut=()=>{
         // setLoading(true);
         return signOut(auth);
@@ -30,6 +37,7 @@ const AuthProvider = ({children}) => {
         loading,
         createUser,
         signInUser,
+        signInWithGoogle,
         setUser,
         userLogOut
     }
