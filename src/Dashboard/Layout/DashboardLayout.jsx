@@ -11,8 +11,8 @@ const DashboardLayout = () => {
                     <h1 className='font-bold text-3xl'>BISTRO BOSS</h1>
                     <p className='tracking-[0.65em] '>RESTAURANT</p>
                 </div>
-                {/* <AdminMenuBar></AdminMenuBar> */}
-                <UserMenuBar></UserMenuBar>
+                <AdminMenuBar></AdminMenuBar>
+                {/* <UserMenuBar></UserMenuBar> */}
             </div>
             <div className='w-full'>
                 <Outlet></Outlet>

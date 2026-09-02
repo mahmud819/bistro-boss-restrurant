@@ -4,6 +4,7 @@ import authenticImg from "../../../assets/others/authentication2.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa6";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import ScocialMediaLogin from "../../../Shared/SharedComponent/ScocialMediaLogin/ScocialMediaLogin";
 // import {
 //   LoadCanvasTemplate,
 //   LoadCanvasTemplateNoReload,
@@ -113,7 +114,9 @@ console.log(user);
             </form>
             <div className="flex text-lg justify-center items-center">
               <FaFacebook className=""></FaFacebook>
-              <FaGoogle className="ml-6"></FaGoogle>
+              <FaGoogle className="ml-6">
+                {/* <ScocialMediaLogin></ScocialMediaLogin> */}
+              </FaGoogle>
               <FaGithub className="ml-6"></FaGithub>
             </div>
           </div>
