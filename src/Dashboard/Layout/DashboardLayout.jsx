@@ -14,7 +14,7 @@ const DashboardLayout = () => {
                 <AdminMenuBar></AdminMenuBar>
                 {/* <UserMenuBar></UserMenuBar> */}
             </div>
-            <div className='w-full'>
+            <div className='w-full bg-[#DED7D7]'>
                 <Outlet></Outlet>
             </div>
         </div>
