@@ -5,10 +5,39 @@ import SharedTable from "../../../Shared/SharedComponent/SharedTable/SharedTable
 import SharedDashBoardTitle from "../../../Shared/SharedComponent/SharedDashBoardTitle/SharedDashBoardTitle";
 import { MdDeleteForever } from "react-icons/md";
 import { FaUsers } from "react-icons/fa6";
+import Swal from "sweetalert2";
 
 const AllUsers = () => {
-  const [users] = useUsers();
+  const [users,refetch] = useUsers();
+  const axiosSecure = useAxiosSecure();
 
+
+  const handleDelete = (id) => {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then((result) => {
+        if (result.isConfirmed)
+          axiosSecure.delete(`/users/${id}`)
+        .then((res)=>{
+          refetch();
+          if(res?.data?.deletedCount>0){
+            Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success",
+          });
+          }
+        })
+          
+      });
+    //   console.log(id);
+    };
   console.log(users);
   return (
     <div className="bg-[#DED7D7]">
@@ -38,17 +67,17 @@ const AllUsers = () => {
                 </thead>
                 <tbody>
                   {/* cart data map */}
-                  {users.map((item, index) => (
-                    <tr key={item._id}>
+                  {users.map((user, index) => (
+                    <tr key={user._id}>
                       <th>{index + 1}</th>
                       <td>
-                        {item?.name}
+                        {user?.name}
                       </td>
-                      <td>{item?.email}</td>
+                      <td>{user?.email}</td>
 
                       <th>
                         <button
-                          onClick={() => handleDelete(item?._id)}
+                          onClick={() => handleMakeAdmin(user?._id)}
                           className="btn btn-ghost text-2xl bg-[#D99904] text-white font-bold"
                         >
                           <FaUsers />
@@ -56,13 +85,13 @@ const AllUsers = () => {
                       </th>
                       <th>
                         <button
-                          onClick={() => handleDelete(item?._id)}
+                          onClick={() => handleDelete(user?._id)}
                           className="btn btn-ghost text-2xl bg-red-500 text-white font-bold"
                         >
                           <MdDeleteForever></MdDeleteForever>
                         </button>
                       </th>
-                       <div className="divider"></div>
+                       <td className="divider"></td>
                     </tr>
                   ))}
                 </tbody>
