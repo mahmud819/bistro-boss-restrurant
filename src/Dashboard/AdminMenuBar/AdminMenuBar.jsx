@@ -28,7 +28,7 @@ const AdminMenuBar = () => {
                 <li className='pb-4 hover:text-[white]'>
                     <NavLink to='/dashboard/manageBookings'><FaBook style={iconsStyle}></FaBook> Manage Bookings</NavLink>
                 </li>
-                <li className='pb-2 hover:text-[white]'>
+                <li className='pb-2 hover:text-[white] dashActive'>
                     <NavLink to='/dashboard/allUsers'><FaUsers style={iconsStyle}></FaUsers> All Users</NavLink>
                 </li>
                 {/* border */}
