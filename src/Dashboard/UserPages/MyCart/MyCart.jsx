@@ -8,7 +8,7 @@ import useAxiosSecure from "../../../CustomHook/UseAxios/useAxios";
 import Swal from "sweetalert2";
 
 const MyCart = () => {
-  const [cart,refetch] = useCart();
+  const [cart,refetch,isError,error] = useCart();
   const totalPrice = cart.reduce((total, item) => total + item?.price, 0);
 
   const axiosSecure = useAxiosSecure();
@@ -40,6 +40,10 @@ const MyCart = () => {
     });
     console.log(id);
   };
+  if(isError){
+    console.log(error.message,error.response.data.message)
+
+  }
   return (
     <div className="">
       <SharedDashBoardTitle

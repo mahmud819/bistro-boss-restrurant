@@ -8,9 +8,14 @@ import { FaUsers } from "react-icons/fa6";
 import Swal from "sweetalert2";
 
 const AllUsers = () => {
-  const [users, refetch] = useUsers();
+  const [users, refetch,isError,error] = useUsers();
   const axiosSecure = useAxiosSecure();
 
+
+  if(isError){
+    console.log(error?.message)
+    console.log(error.response?.data?.message)
+  }
   // handle make admin function
   const handleMakeAdmin = (user) => {
     console.log("from handle make admin function", user);
@@ -36,7 +41,10 @@ const AllUsers = () => {
           }
         });
       }
-    });
+    })
+    .catch(err=>{
+      console.log(err,err?.message)
+    })
   };
 
   // handle delete function implement
