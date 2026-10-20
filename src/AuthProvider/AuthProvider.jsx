@@ -8,7 +8,7 @@ import useAxiosPublic from '../CustomHook/UseAxiosPublic/useAxiosPublic';
 export const AuthContext = createContext();
 const AuthProvider = ({children}) => {
 
-    const [user,setUser]=useState('');
+    const [user,setUser]=useState(null);
     const [loading,setLoading]=useState(true);
     const googleProvider = new GoogleAuthProvider();
     const axiosPublic = useAxiosPublic();
@@ -30,14 +30,17 @@ const AuthProvider = ({children}) => {
         setLoading(true);
         return signInWithPopup(auth,googleProvider);
     }
-    const userLogOut=()=>{
-        // setLoading(true);
-        return signOut(auth);
-    }
+   
     useEffect(()=>{
-        setLoading(true);
+
+        const isMounted = true;
+        
         const unsubscribe = onAuthStateChanged(auth,(currentUser)=>{
-            setUser(currentUser);
+            if(isMounted){
+                setLoading(true);
+                setUser(currentUser);
+            }
+            
             const userInfo = {email:currentUser?.email};
             if(currentUser){
                 axiosPublic.post('/jwt',userInfo,{withCredentials:true})
@@ -58,9 +61,15 @@ const AuthProvider = ({children}) => {
             setLoading(false);
         })
         return ()=>{
+             isMounted = false;
             unsubscribe();
         }
     },[])
+    
+     const userLogOut=()=>{
+        // setLoading(true);
+        return signOut(auth);
+    }
     const authInfo = {
         user,
         loading,
