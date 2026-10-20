@@ -22,22 +22,22 @@ const UserMenuBar = () => {
         <div>
             <ul className='flex flex-col pl-6 uppercase'>
                 <li className='pb-4 hover:text-[white]'>
-                    <NavLink to='/dashboard/userHome'><FaHome style={iconsStyle}></FaHome>User Home</NavLink>
+                    <NavLink to='/dashBoard/userHome'><FaHome style={iconsStyle}></FaHome>User Home</NavLink>
                 </li>
                 <li className='pb-4 hover:text-[white]'>
-                    <NavLink to='/dashboard/reservation'><FaCalendar style={iconsStyle} /> Reservation</NavLink>
+                    <NavLink to='/dashBoard/reservation'><FaCalendar style={iconsStyle} /> Reservation</NavLink>
                 </li>
                 <li className='pb-4 hover:text-[white]'>
-                    <NavLink to='/dashboard/paymentHistory'><SiFiles style={iconsStyle} /> Payment History</NavLink>
+                    <NavLink to='/dashBoard/paymentHistory'><SiFiles style={iconsStyle} /> Payment History</NavLink>
                 </li>
                 <li className='pb-4 hover:text-[white]'>
-                    <NavLink to='/dashboard/myCart'><FaCartShopping style={iconsStyle}> </FaCartShopping> My Cart</NavLink>
+                    <NavLink to='/dashBoard/myCart'><FaCartShopping style={iconsStyle}> </FaCartShopping> My Cart</NavLink>
                 </li>
                 <li className='pb-2 hover:text-[white]'>
-                    <NavLink to='/dashboard/addReview'><PiListStarFill style={iconsStyle}/> Add Review</NavLink>
+                    <NavLink to='/dashBoard/addReview'><PiListStarFill style={iconsStyle}/> Add Review</NavLink>
                 </li>
                 <li className='pb-2 hover:text-[white]'>
-                    <NavLink to='/dashboard/myBookings'><RiCalendarScheduleFill style={iconsStyle}></RiCalendarScheduleFill> My Bookings</NavLink>
+                    <NavLink to='/dashBoard/myBookings'><RiCalendarScheduleFill style={iconsStyle}></RiCalendarScheduleFill> My Bookings</NavLink>
                 </li>
                 {/* border */}
                 <hr className=' w-[85%] my-4 text-[white] font-bold border-1' />

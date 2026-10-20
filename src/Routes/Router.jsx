@@ -24,39 +24,40 @@ import MyBookings from "../Dashboard/UserPages/MyBookings/MyBookings";
 
 const Router = () => {
   return (
-    <BrowserRouter>
+      <BrowserRouter>
       <Routes>
-        <Route path="/" element={<MainLayout></MainLayout>} >
-          <Route path="/" element={<Home></Home>} />
-          <Route path="/contactUs" element={<ContactUs></ContactUs>} />
-          {/* <Route path="/dashBoard" element={<DashBoardHome></DashBoardHome>} /> */}
-
-          <Route path="/ourMenu" element={<OurMenuHome></OurMenuHome>} >
-          </Route>
-          <Route path="/ourShop" element={<OurShop></OurShop>} ></Route>
-          <Route path="/ourShop/:buttonTitle" element={<OurShopMenu></OurShopMenu>} >
-          </Route>
+        {/* Main layout */}
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<Home />} />
+          <Route path="contactUs" element={<ContactUs />} />
+          <Route path="ourMenu" element={<OurMenuHome />} />
+          <Route path="ourShop" element={<OurShop />} />
+          <Route
+            path="ourShop/:buttonTitle"
+            element={<OurShopMenu />}
+          />
         </Route>
-        
-      </Routes>
-      <Routes>
-        <Route path="/signUp" element={<SignUp></SignUp>}></Route>
-        <Route path="/signIn" element={<SignIn></SignIn>}></Route>
-      </Routes>
-      <Routes>
-        <Route path="/dashboard" element={<DashboardLayout></DashboardLayout>}>
-          <Route path="/dashboard/adminHome" element={<AdminHome></AdminHome>}></Route>
-          <Route path="/dashboard/addItems" element={<AddItems></AddItems>}></Route>
-          <Route path="/dashboard/manageItems" element={<ManageItems></ManageItems>}></Route>
-          <Route path="/dashboard/manageBookings" element={<ManageBooking></ManageBooking>}></Route>
-          <Route path="/dashboard/allUsers" element={<AllUsers></AllUsers>}></Route>
-          {/* user dashboard component */}
-          <Route path="/dashboard/userHome" element={<UserHome></UserHome>}></Route>
-          <Route path="/dashboard/reservation" element={<Reservation></Reservation>}></Route>
-          <Route path="/dashboard/paymentHistory" element={<PaymentHistory></PaymentHistory>}></Route>
-          <Route path="/dashboard/myCart" element={<MyCart></MyCart>}></Route>
-          <Route path="/dashboard/addReview" element={<AddReview></AddReview>}></Route>
-          <Route path="/dashboard/myBookings" element={<MyBookings></MyBookings>}></Route>
+
+        {/* Authentication routes */}
+        <Route path="/signUp" element={<SignUp />} />
+        <Route path="/signIn" element={<SignIn />} />
+
+        {/* Dashboard layout */}
+        <Route path="/dashBoard" element={<DashboardLayout />}>
+          {/* Admin routes */}
+          <Route path="adminHome" element={<AdminHome />} />
+          <Route path="addItems" element={<AddItems />} />
+          <Route path="manageItems" element={<ManageItems />} />
+          <Route path="manageBookings" element={<ManageBooking />} />
+          <Route path="allUsers" element={<AllUsers />} />
+
+          {/* User routes */}
+          <Route path="userHome" element={<UserHome />} />
+          <Route path="reservation" element={<Reservation />} />
+          <Route path="paymentHistory" element={<PaymentHistory />} />
+          <Route path="myCart" element={<MyCart />} />
+          <Route path="addReview" element={<AddReview />} />
+          <Route path="myBookings" element={<MyBookings />} />
         </Route>
       </Routes>
     </BrowserRouter>

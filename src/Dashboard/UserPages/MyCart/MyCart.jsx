@@ -41,7 +41,7 @@ const MyCart = () => {
     console.log(id);
   };
   if(isError){
-    console.log(error.message,error.response.data.message)
+    console.log(error?.message,error.response?.data?.message)
 
   }
   return (

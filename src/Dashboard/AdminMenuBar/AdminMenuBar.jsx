@@ -17,19 +17,19 @@ const AdminMenuBar = () => {
         <div>
             <ul className='flex flex-col pl-6 uppercase'>
                 <li className='pb-4 hover:text-[white]'>
-                    <NavLink to='/dashboard/adminHome'><FaHome style={iconsStyle}></FaHome> Admin Home</NavLink>
+                    <NavLink to='/dashBoard/adminHome'><FaHome style={iconsStyle}></FaHome> Admin Home</NavLink>
                 </li>
                 <li className='pb-4 hover:text-[white]'>
-                    <NavLink to='/dashboard/addItems'><ImSpoonKnife style={iconsStyle} /> Add Items</NavLink>
+                    <NavLink to='/dashBoard/addItems'><ImSpoonKnife style={iconsStyle} /> Add Items</NavLink>
                 </li>
                 <li className='pb-4 hover:text-[white]'>
-                    <NavLink to='/dashboard/manageItems'><FaListUl style={iconsStyle} /> Manage Items</NavLink>
+                    <NavLink to='/dashBoard/manageItems'><FaListUl style={iconsStyle} /> Manage Items</NavLink>
                 </li>
                 <li className='pb-4 hover:text-[white]'>
-                    <NavLink to='/dashboard/manageBookings'><FaBook style={iconsStyle}></FaBook> Manage Bookings</NavLink>
+                    <NavLink to='/dashBoard/manageBookings'><FaBook style={iconsStyle}></FaBook> Manage Bookings</NavLink>
                 </li>
                 <li className='pb-2 hover:text-[white] dashActive'>
-                    <NavLink to='/dashboard/allUsers'><FaUsers style={iconsStyle}></FaUsers> All Users</NavLink>
+                    <NavLink to='/dashBoard/allUsers'><FaUsers style={iconsStyle}></FaUsers> All Users</NavLink>
                 </li>
                 {/* border */}
                 <hr className=' w-[85%] my-4 text-[white] font-bold border-1' />
